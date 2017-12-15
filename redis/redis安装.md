@@ -32,5 +32,4 @@
 
 - 查看端口 ： `netstat -tunpl | grep 6379`
 
-## Redis 单机集群
 
