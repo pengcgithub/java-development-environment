@@ -20,15 +20,6 @@
 
 - 生成配置（使用 InnoDB）：`cmake -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_DATADIR=/usr/local/mysql/data -DMYSQL_UNIX_ADDR=/tmp/mysql.sock -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DWITH_EXTRA_CHARSETS:STRING=utf8 -DWITH_MYISAM_STORAGE_ENGINE=1 -DWITH_INNOBASE_STORAGE_ENGINE=1 -DENABLED_LOCAL_INFILE=1`
 
-- 编译：make，这个过程比较漫长，一般都在 30 分钟左右，具体还得看机子配置，如果最后结果有 error，建议删除整个 mysql 目录后重新解压一个出来继续处理
-
-- 安装：`make install`
-
-- 配置开机启动：
-	- `cp /usr/local/mysql-5.6.35/support-files/mysql.server /etc/init.d/mysql`
-	- `chmod 755 /etc/init.d/mysql`
-	- `chkconfig mysql on`
-
 <pre>
 CMAKE参数说明：
 -DCMAKE_INSTALL_PREFIX=/usr/local/mysql //默认安装目录
@@ -40,6 +31,15 @@ CMAKE参数说明：
 -DMYSQL_USER=mysql
 -DMYSQL_TCP_PORT=3306
 </pre>
+
+- 编译：make，这个过程比较漫长，一般都在 30 分钟左右，具体还得看机子配置，如果最后结果有 error，建议删除整个 mysql 目录后重新解压一个出来继续处理
+
+- 安装：`make install`
+
+- 配置开机启动：
+	- `cp /usr/local/mysql-5.6.35/support-files/mysql.server /etc/init.d/mysql`
+	- `chmod 755 /etc/init.d/mysql`
+	- `chkconfig mysql on`
 
 - 复制一份配置文件： `cp /usr/local/mysql-5.6.35/support-files/my-default.cnf /etc/my.cnf`
 
@@ -144,6 +144,10 @@ Starting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.p
 
 	- 给路径赋予读写权限：sudo chown -R mysql:mysql mysql(路径)
 
+## 配置文件
+
+- [my.cnf配置文件](mysql/file/my.cnf)
+
 ## 参考资料
 
 - [http://blog.51cto.com/liuzhenlife/1892310](http://blog.51cto.com/liuzhenlife/1892310)
@@ -153,3 +157,5 @@ Starting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.p
 - [Host '192.168.1.133' is not allowed to connect to this MySQL server](https://www.cnblogs.com/xyzdw/archive/2011/08/11/2135227.html)
 
 - [https://github.com/zhblue/crud](https://github.com/zhblue/crud)
+
+- [linux安装mysql出现Could NOT find Curses (missing CURSES_LIBRARY CURSES_INCLUDE_PATH)解决方法](https://www.cnblogs.com/ityunv/p/5909485.html)

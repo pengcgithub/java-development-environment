@@ -36,6 +36,6 @@
 
 - 查看端口 ： `netstat -tunpl | grep 6379`
 
-- 连接 ： `redis-cli -h localhost -p 6379 `
+- 连接 ： `redis-cli -h localhost -p 6379 `陪亲戚看病
 
 

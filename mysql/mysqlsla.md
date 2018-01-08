@@ -48,6 +48,8 @@ Appending installation info to /usr/lib64/perl5/perllocal.pod
 
 - 执行日志分析： `mysqlsla -lt slow ./slow.log`
 
+`mysqlsla -lt slow  -sf "+select" -top 100  ./slow.log > /opt/slow.log` mysqlsla默认导出10条sql，可以通过-top 指定导出的sql数量
+
 ## 错误解决
 
 > 执行`perl Makefile.PL`报`Can't locate ExtUtils/MakeMaker.pm in @INC。。。`错误

@@ -1,0 +1,88 @@
+[client]
+port = 3306
+socket = /tmp/mysql.sock
+
+[mysqld]
+character-set-server = utf8
+collation-server = utf8_general_ci
+
+skip-external-locking
+skip-name-resolve
+
+user = mysql
+port = 3306
+basedir = /usr/local/mysql
+datadir = /usr/local/mysql/data
+# tmpdir = /home/mysql/temp
+# server_id = .....
+socket = /tmp/mysql.sock
+log-error=/usr/local/mysql/log/error.log
+pid-file=/usr/local/mysql/data/mysqld.pid
+
+open_files_limit = 10240
+
+back_log = 600
+max_connections=500
+max_connect_errors = 6000
+wait_timeout=605800
+
+#open_tables = 600
+#table_cache = 650
+#opened_tables = 630
+
+max_allowed_packet = 32M
+
+sort_buffer_size = 4M
+join_buffer_size = 4M
+thread_cache_size = 300
+query_cache_type = 1
+query_cache_size = 256M
+query_cache_limit = 2M
+query_cache_min_res_unit = 16k
+
+tmp_table_size = 256M
+max_heap_table_size = 256M
+
+key_buffer_size = 256M
+read_buffer_size = 1M
+read_rnd_buffer_size = 16M
+bulk_insert_buffer_size = 64M
+
+lower_case_table_names=1
+
+default-storage-engine = INNODB
+
+innodb_buffer_pool_size = 2G
+innodb_log_buffer_size = 32M
+innodb_log_file_size = 128M
+innodb_flush_method = O_DIRECT
+
+#####################
+thread_concurrency = 32
+long_query_time= 2
+slow-query-log = on
+slow-query-log-file = /usr/local/mysql/log/slow.log
+
+
+## replication
+server_id=206
+#binlog-do-db=roncoo
+binlog-ignore-db=mysql
+log-bin=edu-mysql-slave1-bin
+binlog_cache_size = 1M
+binlog_format=mixed
+expire_logs_days=7
+slave_skip_errors=1062
+relay_log=edu-mysql-relay-bin
+log_slave_updates=1
+read_only=1
+
+
+[mysqldump]
+quick
+max_allowed_packet = 32M
+
+[mysqld_safe]
+log-error=/usr/local/mysql/log/error.log
+pid-file=/usr/local/mysql/data/mysqld.pid
+
