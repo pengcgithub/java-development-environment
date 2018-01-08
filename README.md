@@ -20,7 +20,7 @@ Github 项目地址，欢迎 `Fork`、`Star`：<https://github.com/pengcgithub/j
 	- [慢查询分析-mysqlsla](mysql/mysqlsla.md)
 	- [mysql权限](mysql/mysql权限.md)
 	- [mysql运维及开发规范](mysql/mysql运维及开发规范.md)
-	- [my.cnf配置文件](mysql/my.cnf)
+	- [mysql主从复制](mysql/mysql主从复制.md)
 - [jenkins安装](jenkins.md)
 - Redis
 	- [redis安装](redis/redis安装.md)
