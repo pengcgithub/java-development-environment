@@ -24,7 +24,7 @@ mysqldumpslow为mysql自带的慢查询分析工具，分析效果一般。mysql
 
 - 下载： `wget http://hackmysql.com/scripts/mysqlsla-2.03.tar.gz`
 
-- 解压： `tar -zxvf mysqlsla-2.03.tar.gz`
+- 解压： `tar zxvf mysqlsla-2.03.tar.gz`
 
 - 移到解压包：`mv /opt/setups/mysqlsla-2.03 /usr/local/`
 
