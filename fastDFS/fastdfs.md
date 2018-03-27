@@ -2,6 +2,12 @@
 
 *按照个人习惯，`/opt/setups`用来存放各种软件安装包，`/usr/local`用于存放解压后的软件包。*
 
+## 注意事项
+- 以下操作服务器的防火墙是关闭的，如果开启防火墙则需要添加端口。
+	- nginx ：8888
+	- tracker ： 22122
+	- storage ： 23000
+
 ## 安装
 
 - 软件准备
@@ -262,3 +268,100 @@ http.tracker_server_port=80
 - 执行测试命令：`/usr/bin/fdfs_test /etc/fdfs/client.conf upload /opt/test.jpg`
 - 返回ID号：`group1/M00/00/00/rBPbMlq3V0KALRgmADcMnleurQk583.png` 
 - 访问：`http://106.15.183.40:8888/group1/M00/00/00/rBPbMlq3V0KALRgmADcMnleurQk583.png`，无法展示图片，因为我们还没装 FastDFS 的 Nginx 模块。
+
+### 安装fastdfs-nginx-module_v1.16
+
+- 解压：`tar zxvf fastdfs-nginx-module_v1.16.tar.gz`
+- 移动目录：`mv /opt/setups/fastdfs-nginx-module /usr/local/fast`
+- 编辑 Nginx 模块的配置文件：`vim /usr/local/fast/fastdfs-nginx-module/src/config`
+<pre>
+CORE_INCS="$CORE_INCS /usr/local/include/fastdfs /usr/local/include/fastcommon/"
+替换为
+CORE_INCS="$CORE_INCS /usr/include/fastdfs /usr/include/fastcommon/"
+</pre>
+- 复制文件：`cp /usr/local/fast/FastDFS/conf/http.conf /etc/fdfs`
+- 复制文件：`cp /usr/local/fast/FastDFS/conf/mime.types /etc/fdfs`
+
+### 安装Nginx
+
+具体安装步骤参考 [Nginx安装](/nginx/nginx.md) ，只需要将编译配置文件修改为如下（注意最后一行，指向fastdfs-nginx-module的安装目录）：
+<pre>
+./configure \
+--prefix=/usr/local/nginx \
+--pid-path=/var/local/nginx/nginx.pid \
+--lock-path=/var/lock/nginx/nginx.lock \
+--error-log-path=/var/log/nginx/error.log \
+--http-log-path=/var/log/nginx/access.log \
+--with-http_gzip_static_module \
+--http-client-body-temp-path=/var/temp/nginx/client \
+--http-proxy-temp-path=/var/temp/nginx/proxy \
+--http-fastcgi-temp-path=/var/temp/nginx/fastcgi \
+--http-uwsgi-temp-path=/var/temp/nginx/uwsgi \
+--http-scgi-temp-path=/var/temp/nginx/scgi \
+--add-module=/usr/local/fast/fastdfs-nginx-module/src/
+</pre>
+
+- 安装编译完成
+- 复制 Nginx 模块的配置文件：`cp /usr/local/fast/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs`
+- 编辑 Nginx 模块的配置文件：`vim /etc/fdfs/mod_fastdfs.conf`
+<pre>
+connect_timeout=2
+network_timeout=30
+# 下面这个路径是保存 log 的地方，需要我们改下，指向我们一个存在的目录
+# 创建目录：mkdir -p /fastdfs/fastdfs-nginx-module
+base_path=/fastdfs/fastdfs-nginx-module
+load_fdfs_parameters_from_tracker=true
+storage_sync_file_max_delay = 86400
+use_storage_id = false
+storage_ids_filename = storage_ids.conf
+# 指定 tracker 服务器的 IP 和端口
+tracker_server=192.168.1.114:22122
+storage_server_port=23000
+group_name=group1
+# 因为我们访问图片的地址是：http://106.15.183.40:8888/group1/M00/00/00/wKgBclb0aqWAbVNrAAAjn7_h9gM813_big.jpg
+# 该地址前面是带有 /group1/M00，所以我们这里要使用 true，不然访问不到（原值是 false）
+url_have_group_name = true
+store_path_count=1
+# 图片实际存放路径，如果有多个，这里可以有多行：
+# store_path0=/fastdfs/storage/images-data0
+# store_path1=/fastdfs/storage/images-data1
+# store_path2=/fastdfs/storage/images-data2
+store_path0=/fastdfs/storage
+log_level=info
+log_filename=
+response_mode=proxy
+if_alias_prefix=
+flv_support = true
+flv_extension = flv
+group_count = 0
+</pre>
+
+- 编辑 Nginx 配置文件
+<pre>
+server {
+	listen       8888;
+	# 访问本机
+	server_name  localhost;
+	# 拦截包含 /group1/M00 请求，使用 fastdfs 这个 Nginx 模块进行转发
+	location ~ /group([0-9])/M00 {
+	    ngx_fastdfs_module;
+	}
+}
+</pre>
+
+- 启动nginx，再次访问图片地址。如果访问不了，或则出现错误可查看nginx日志 `vim /var/log/nginx/error.log`
+
+## 问题
+- `mod_fastdfs.cnf`中的`base_path`指向的路径没有找到
+<pre>
+[2018-03-26 11:52:44] ERROR - file: ../storage/trunk_mgr/trunk_shared.c, line: 177, "No such file or directory" can't be accessed, error info: /fastfds/fastdfs-nginx-module
+2018/03/26 11:52:44 [alert] 17260#0: worker process 17262 exited with fatal code 2 and cannot be respawned
+ngx_http_fastdfs_process_init pid=17693
+</pre>
+
+## 参考资料
+
+- [Linux-Tutorial（FastDFS 安装和配置）](https://github.com/pengcgithub/Linux-Tutorial/blob/master/FastDFS-Install-And-Settings.md)
+- [FastDFS详细安装步骤,测试;Nginx中配置FastDFS,并提供优化,下载方法。](https://blog.csdn.net/hanwuqia0370/article/details/78313135)
+
+

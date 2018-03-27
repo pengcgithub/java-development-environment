@@ -5,7 +5,7 @@ Github 项目地址，欢迎 `Fork`、`Star`：<https://github.com/pengcgithub/j
 ## 初衷(Original Intention)
 
 - 整理下工作中的实践成果
-- 另一方面为没有搭建过的童鞋提供参考（ps:毕竟自己也是一步步采坑过来的）
+- 另一方面为没有搭建过的童鞋提供参考
 
 ## 目录(Contents)
 
@@ -30,6 +30,9 @@ Github 项目地址，欢迎 `Fork`、`Star`：<https://github.com/pengcgithub/j
 - Nginx
 	- [nginx安装](nginx/nginx.md)
 	- [nginx配置](nginx/nginx配置.md)
+
+- FastDFS
+	- [FastDFS安装](fastdfs/fastdfs.md)
 
 ## 联系(Contact)
 
