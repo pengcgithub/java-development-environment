@@ -46,9 +46,9 @@ CMAKE参数说明：
 - 删除安装的目录：`rm -rf /usr/local/mysql-5.6.35/`
 
 - 添加组和用户及安装目录权限
-	- groupadd mysql #添加组
-	- useradd -g mysql mysql -s /bin/false #创建用户mysql并加入到mysql组，不允许mysql用户直接登录系统
-	- chown -R mysql:mysql /usr/local/mysql/data #设置MySQL数据库目录权限
+	- `groupadd mysql` #添加组
+	- `useradd -g mysql mysql -s /bin/false` #创建用户mysql并加入到mysql组，不允许mysql用户直接登录系统
+	- `chown -R mysql:mysql /usr/local/mysql/data` #设置MySQL数据库目录权限
 
 - 初始化数据库：`/usr/local/mysql/scripts/mysql_install_db --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --skip-name-resolve --user=mysql`
 
@@ -65,7 +65,7 @@ CMAKE参数说明：
 
 ## MySQL 配置
 
-- 找一下当前系统中有多少个 my.cnf 文件：find / -name "my.cnf"，我查到的结果
+- 找一下当前系统中有多少个 my.cnf 文件：`find / -name my.cnf`，我查到的结果
 
 <pre>
 /etc/my.cnf
@@ -84,7 +84,7 @@ CMAKE参数说明：
 
 - 查看是否已经启动了：`ps aux | grep mysql`
 
-- 终端下执行：/usr/local/mysql/bin/mysql -uroot
+- 终端下执行：`/usr/local/mysql/bin/mysql -uroot`
 
 	- 现在进入了 mysql 命令行管理界面，输入：`SET PASSWORD = PASSWORD('123456');FLUSH PRIVILEGES;`
 
@@ -142,7 +142,7 @@ Starting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.p
 
 - mysqld_safe error: log-error set to '/usr/local/mysql/log/alert.log', however file don't exists. Create writable for user 'mysql'.
 
-	- 给路径赋予读写权限：sudo chown -R mysql:mysql mysql(路径)
+	- 给路径赋予读写权限：`sudo chown -R mysql:mysql mysql`(路径)
 
 ## 配置文件
 
