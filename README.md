@@ -32,7 +32,7 @@ Github 项目地址，欢迎 `Fork`、`Star`：<https://github.com/pengcgithub/j
 	- [nginx配置](nginx/nginx配置.md)
 
 - FastDFS
-	- [FastDFS安装](fastdfs/fastdfs.md)
+	- [FastDFS安装](fastDFS/fastdfs.md)
 
 ## 联系(Contact)
 
