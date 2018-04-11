@@ -100,3 +100,6 @@ export PATH=$PATH:$MYCAT_HOME/bin
 - mycat启动后自动关闭服务，并在mycat根目录出现类似于`hs_err_pid28000.log`的日志文件
 
 由于服务器内存不足，导致java虚拟机崩盘，所以才会在mycat根目录出现`hs_err_pid*.log`类似的问题。[https://blog.csdn.net/u013938484/article/details/51811400](https://blog.csdn.net/u013938484/article/details/51811400)
+
+- 数据乱码问题
+	- my.cnf配置 防止乱码问题`default-character-set=utf8`

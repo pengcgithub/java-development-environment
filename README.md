@@ -21,6 +21,7 @@ Github 项目地址，欢迎 `Fork`、`Star`：<https://github.com/pengcgithub/j
 	- [mysql权限](mysql/mysql权限.md)
 	- [mysql运维及开发规范](mysql/mysql运维及开发规范.md)
 	- [mysql主从复制](mysql/mysql主从复制.md)
+	- [基于mycat读写分离](mysql/mycat.md)
 - [jenkins安装](jenkins.md)
 - Redis
 	- [redis安装](redis/redis安装.md)
