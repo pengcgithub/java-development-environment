@@ -69,7 +69,7 @@ export PATH=$PATH:$MYCAT_HOME/bin
     </user>  
 
 
-- log4j2.xml：开启debug模式，启动之后会在logs文件夹中生成mycat.log日志文件
+- log4j2.xml：开启debug模式，启动之后会在logs文件夹中生成mycat.log日志文件，一般生产环境会设置为info
 
 ![](https://i.imgur.com/vXMkYyH.png)
 

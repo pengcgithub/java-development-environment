@@ -22,3 +22,8 @@ http://106.15.92.216/zabbix/zabbix.php?action=dashboard.view&ddreset=1&fullscree
 yum -y  install httpd
 
 10051
+
+rpm -ivh http://repo.zabbix.com/zabbix/3.2/rhel/7/x86_64/zabbix-get-3.2.1-1.el7.x86_64.rpm
+
+- 验证
+zabbix_get -s 106.15.183.40 -p10050 -k "system.cpu.load[all,avg15]"; 

@@ -52,7 +52,7 @@ slave_skip_errors=1062
 - 启动/重启 Master 数据库服务，登录数据库，创建数据同步用户，并授予相应的权限
 	- 重启: `service mysql restart`
 	- 登录mysql服务： ` mysql -uroot -p`
-	- 创建数据同步用户，并授予相应的权限： `grant replication slave, replication client on *.* to 'test'@'192.168.0.1' identified by '123456'`
+	- 创建数据同步用户，并授予相应的权限： `grant replication slave, replication client on *.* to 'test'@'192.168.0.2' identified by '123456'`
 	- 刷新授权表信息： `flush privileges`
 	- 查看 position 号： ` show master status`
 	

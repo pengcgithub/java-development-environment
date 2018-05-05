@@ -50,4 +50,5 @@ error: Failed dependencies:
 - [http://blog.csdn.net/wxc20062006/article/details/71629507](http://blog.csdn.net/wxc20062006/article/details/71629507)
 
 - [http://www.cnblogs.com/liushen/p/5715546.html](http://www.cnblogs.com/liushen/p/5715546.html)
+- [ MySQL之——灾难恢复](https://blog.csdn.net/l1028386804/article/details/79638562)
 
