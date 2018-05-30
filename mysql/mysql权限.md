@@ -34,7 +34,7 @@
 
 > 创建test用户，并赋予所有用户权限
 
-GRANT SELECT,INSERT,DELETE,UPDATE ON samp_db.* TO 'user'@'%' IDENTIFIEDBY "pass"
+GRANT SELECT,INSERT,DELETE,UPDATE ON samp_db.* TO 'user'@'%' IDENTIFIED BY "pass"
 
 - 创建test账号
 	- insert into mysql.user(Host,User,Password) values("localhost","test",password("123456"));
@@ -64,6 +64,13 @@ GRANT SELECT,INSERT,DELETE,UPDATE ON samp_db.* TO 'user'@'%' IDENTIFIEDBY "pass"
 - SET PASSWORD FOR 'root'@'localhost' = PASSWORD('myLoveJSYF');
 - flush privileges;
 
+## 问题
+
+- 执行创建账号操作，报`(1364, u"Field 'ssl_cipher' doesn't have a default value")`
+
+换一种操作方式创建用户：`GRANT USAGE ON *.* TO 'jsyfstore'@'localhost' IDENTIFIED BY 'myLoveJSYF.com' WITH GRANT OPTION;`
+
 ## 参考资料
 
-[Mysql 远程登录1045失败解决办法](http://blog.csdn.net/yang382197207/article/details/18217429)
+- [Mysql 远程登录1045失败解决办法？](http://blog.csdn.net/yang382197207/article/details/18217429)
+- [出现Field 'ssl_cipher' doesn't have a default value错误怎么解决？](https://blog.csdn.net/u010419967/article/details/40920597)
