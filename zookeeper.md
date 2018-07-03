@@ -22,6 +22,21 @@
 - 停止 zookeeper：`sh /usr/local/zookeeper/zookeeper-3.3.6/bin/zkServer.sh stop`
 - 查看 zookeeper 状态：`sh /usr/local/zookeeper/zookeeper-3.3.6/bin/zkServer.sh status`
 
+## 服务启动
+
+- 配置环境变量： `vim /etc/profile`
+```
+export ZOOKEEPER_HOME=/usr/local/zookeeper/zookeeper-3.3.6
+export PATH=$ZOOKEEPER_HOME/bin:$PATH
+export PATH
+```
+
+- 刷新profile文件：`source /etc/profile`
+- 启动：`zkServer.sh start`
+- 查看状态：`zkServer.sh status`
+- 关闭：`zkServer.sh stop`
+- 重启：`zkServer.sh restart`
+
 ## 问题
 
 - 关闭zookeeper服务报`could not find file /usr/local/zookeeper/data   /zookeeper_server.pid`错误，并且服务也没法关闭。
