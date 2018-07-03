@@ -1,8 +1,17 @@
 #  firewall 切换至 iptables
 
-# firewall 基本使用
+## firewall 基本使用
 
-暂无
+- 启动：`systemctl start firewalld`
+![](https://i.imgur.com/cH4gX6Y.png)
+
+- 停止：`systemctl disable firewalld`
+![](https://i.imgur.com/HUz6Srz.png)
+
+- 禁用：`systemctl stop firewalld`
+- 查看状态：`systemctl status firewalld`
+- 查看所有打开的端口： `firewall-cmd --zone=dmz --list-ports`
+- 增加端口： `firewall-cmd --zone=dmz --add-port=8080/tcp`
 
 ## 切换为iptables防火墙
 
