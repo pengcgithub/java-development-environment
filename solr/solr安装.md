@@ -63,7 +63,14 @@ Error CREATEing SolrCore 'goods': Unable to create core [goods] Caused by: Can't
 
 ## 创建core
 
+conf：配置文件
+data：存储索引
 
+
+## 中文分词器
+
+[ikanalyzer 中文分词器](https://blog.csdn.net/qq_28114645/article/details/77961998)
+[内置中文分词器](https://blog.csdn.net/jiadajing267/article/details/78702158)
 
 
 ## 参考资料
