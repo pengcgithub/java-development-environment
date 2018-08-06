@@ -1,4 +1,4 @@
-# schema
+# managed-schema（schema.xml）
 
 ## 简介
 
@@ -13,7 +13,29 @@ solr默认使用的就是托管模式。也就是当在solrconfig.xml文件中�
 <schemaFactory class="ClassicIndexSchemaFactory"/>
 ```
 
+## schema文件中各种标签的含义
 
+```
+<schema name="default-config" version="1.6"></schema>
+这是schema文件的根节点，类似于html文件的<html></html>，只是schema文件还有一些属性。
+
+<uniqueKey>id</uniqueKey>
+指定某个字段是唯一的字段。
+
+<fieldType ></fieldType>
+定义字段类型。
+
+<field  name=" " type=" "/>
+定义字段。
+
+<dynamicField name=" " type=" " indexed="true" stored="true"/>
+定义动态字段。
+
+<copyField source=" " dest=" " />
+复制字段。
+```
+
+## 配置示例
 
 ```
   <!-- 
@@ -37,4 +59,41 @@ solr默认使用的就是托管模式。也就是当在solrconfig.xml文件中�
    -->
 ```
 
-[https://blog.csdn.net/weixin_39082031/article/category/7370960](https://blog.csdn.net/weixin_39082031/article/category/7370960)
+- 配置参数
+
+```
+<field name="id" type="text_ik" indexed="true" stored="true" />
+<field name="name" type="string" indexed="true" stored="true" />
+<field name="copyFieldName" type="text_ik" indexed="true" stored="true" multiValued="true" />
+<copyField source="firstTypeName" dest="copyFieldName" />
+<copyField source="brandName" dest="copyFieldName" />
+```
+
+- 出参格式
+
+```
+{
+  "responseHeader":{
+    "status":0,
+    "QTime":20,
+    "params":{
+      "mm":"100%",
+      "q":"*:*",
+      "defType":"edismax",
+      "start":"6780",
+      "rows":"10",
+      "_":"1533567295626"}},
+  "response":{"numFound":1,"start":1,"docs":[
+      {
+        "id":"2017121517108604C96BE17B11E7834E",
+        "name":"轮挖EX125W",
+        "queryKeywords":[
+		  "轮挖EX125W",
+          "2017121517108604C96BE17B11E7834E"]
+	  }
+  ]
+}
+```
+
+## 参考资料
+- [https://blog.csdn.net/weixin_39082031/article/category/7370960](https://blog.csdn.net/weixin_39082031/article/category/7370960)
