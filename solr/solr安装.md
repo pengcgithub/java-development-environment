@@ -19,8 +19,8 @@ Java8
 	- 将solr压缩包中`solr/dist/solr-dataimporthandler-*` 开头的jar全部复制到 `tomcat\ webapps\solr\WEB-INF\lib` 目录中：`mv /opt/setups/solr/dist/solr-dataimporthandler-* usr/local/tomcat/webapps/solr/WEB-INF/lib`
 - 在`tomcat/webapps/solr/WEB-INF`下建立classes目录：`mkdir /usr/local/tomcat/webapps/solr/WEB-INF/classes`
 - 将`solr/server/resources/log4j.properties`文件复制至classes目录：`mv /opt/setups/solr/server/resources/log4j.properties /usr/local/tomcat/webapps/solr/WEB-INF/classes`
-- 创建solr的主目录：`mkdir /usr/local/tomcat/solrhome`
-- 复制`solr/server/solr/*` 所有文件到`tomcat/solrhome`目录，用到创建solr的core时使用：`mv /opt/setups/solr/server/solr/* /usr/local/tomcat/solrhome`
+- 创建solr的主目录：`mkdir /usr/local/solrhome`
+- 复制`solr/server/solr/*` 所有文件到`solrhome`目录，用到创建solr的core时使用：`mv /opt/setups/solr/server/solr/* /usr/local/solrhome`
 
 ## 配置solr
 
@@ -29,7 +29,7 @@ Java8
 ```
 <env-entry>
    <env-entry-name>solr/home</env-entry-name>
-   <env-entry-value>/usr/local/tomcat/solrhome</env-entry-value> //将路径指向我们创建的solrhome目录。
+   <env-entry-value>/usr/local/solrhome</env-entry-value> //将路径指向我们创建的solrhome目录。
    <env-entry-type>java.lang.String</env-entry-type>
 </env-entry>
 ```
@@ -59,19 +59,24 @@ Java8
 - 启动tomcat：`./start`
 - 访问solr界面：`http://localhost:3501/solr/index.html`
 
-Error CREATEing SolrCore 'goods': Unable to create core [goods] Caused by: Can't find resource 'solrconfig.xml' in classpath or '/usr/local/tomcat-solr/solrhome/goods'
-
 ## 创建core
 
-conf：配置文件
-data：存储索引
-
+- 创建索引库
+![](https://i.imgur.com/8o6tnhO.png)
+如果按照上述方式直接创建，此刻会出现报错问题。
+```
+Error CREATEing SolrCore 'solr_core': Unable to create core [goods] Caused by: Can't find resource 'solrconfig.xml' in classpath or '/usr/local/tomcat-solr/solrhome/solr_core'
+```
+- 错误问题解决方案
+	- 在solrhome目录下删除之前创建无效的索引库文件：`rm -rf /usr/local/solrhome/solr_core`
+	- 创建新的索引库文件：`mkdir -p /usr/local/solrhome/solr_core`
+	- 拷贝_default下的conf目录至`solr_core`：`cp -R /opt/setups/solr/server/solr/configsets/basic_configs/* /usr/local/solrhome/solr_core/`
+	- 重启服务
 
 ## 中文分词器
 
 [ikanalyzer 中文分词器](https://blog.csdn.net/qq_28114645/article/details/77961998)
 [内置中文分词器](https://blog.csdn.net/jiadajing267/article/details/78702158)
-
 
 ## 参考资料
 [https://www.linuxidc.com/Linux/2017-12/149898.htm](https://www.linuxidc.com/Linux/2017-12/149898.htm)
