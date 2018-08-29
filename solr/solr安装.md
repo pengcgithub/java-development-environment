@@ -29,7 +29,8 @@ Java8
 ```
 <env-entry>
    <env-entry-name>solr/home</env-entry-name>
-   <env-entry-value>/usr/local/solrhome</env-entry-value> //将路径指向我们创建的solrhome目录。
+   //将路径指向我们创建的solrhome目录。
+   <env-entry-value>/usr/local/solrhome</env-entry-value> 
    <env-entry-type>java.lang.String</env-entry-type>
 </env-entry>
 ```
