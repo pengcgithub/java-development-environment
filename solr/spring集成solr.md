@@ -1,4 +1,8 @@
-# spring集成solrj或则spring-data-solr
+# spring集成solr
+
+## 简介
+
+// TODO
 
 ## 集成spring-data-solr
 
@@ -97,4 +101,8 @@
     </bean>
 </beans>
 ```
+
+- 集成案例
+
+[https://github.com/pengcgithub/platform-dubbo](https://github.com/pengcgithub/platform-dubbo)
 
