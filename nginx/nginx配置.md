@@ -1,7 +1,5 @@
 # nginx 配置
 
-
-
 ## Nginx 全局变量
 
 - $arg_PARAMETER #这个变量包含GET请求中，如果有变量PARAMETER时的值。
@@ -37,3 +35,7 @@
 - $server_port #请求到达服务器的端口号。
 - $uri #不带请求参数的当前URI，$uri不包含主机名，如”/foo/bar.html”。该值有可能和$request_uri 不一致。
 - $request_uri是浏览器发过来的值。该值是rewrite后的值。例如做了internal redirects后。
+
+## 参考资料
+
+- [nginx快速入门之配置篇](https://zhuanlan.zhihu.com/p/31202053)

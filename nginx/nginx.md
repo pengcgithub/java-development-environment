@@ -7,7 +7,7 @@
 
 ## Nginx 源码编译安装
 
-- 源码包方式下载：http://nginx.org/en/download.html，注意该页面的：**Stable version**，这个表示稳定版本
+- 源码包方式下载：http://nginx.org/en/download.html ，注意该页面的：**Stable version**，这个表示稳定版本
 
 - 安装
 	- 安装依赖包：`yum install -y gcc gcc-c++ pcre pcre-devel zlib zlib-devel openssl openssl-devel`
@@ -56,9 +56,10 @@
 - 把 Nginx 添加到系统服务中
 	- 新建文件：vim /etc/init.d/nginx
 	- 添加如下内容：
-	<pre>
-	#!/bin/bash
 
+
+<pre>
+	#!/bin/bash
 
 	#nginx执行程序路径需要修改
 	nginxd=/usr/local/nginx/sbin/nginx
@@ -141,12 +142,12 @@
 	
 	esac
 	exit $RETVAL
-	</pre>
+</pre>
 
-	- 修改权限：`chmod 755 /etc/init.d/nginx`
-	- 启动服务：`service nginx start`
-	- 停止服务：`service nginx stop`
-	- 重启服务：`service nginx restart`
+- 修改权限：`chmod 755 /etc/init.d/nginx`
+- 启动服务：`service nginx start`
+- 停止服务：`service nginx stop`
+- 重启服务：`service nginx restart`
 
 ## 参考资料
 
