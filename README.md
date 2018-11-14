@@ -14,7 +14,9 @@ Github 项目地址，欢迎 `Fork`、`Star`：<https://github.com/pengcgithub/j
 - [Nexus安装与配置](nexus.md)
 - [jenkins](jenkins.md)
 - [Dubbo](dubbo.md)
-- [Zookeeper](zookeeper.md)
+- Zookeeper
+	- [Zookeeper安装](zookeeper/zookeeper.md)
+	- [Zookeeper集群](zookeeper/zookeeper集群.md)
 - versionControl
 	- [Svn](svn.md)
 - Mysql
