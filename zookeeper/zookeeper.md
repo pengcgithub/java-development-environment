@@ -50,6 +50,6 @@ Stopping zookeeper ... no zookeeper to stop (could not find file /usr/local/zook
 由于`zoo.cnf`中存在多余的空格导致的，建议删除**行与行**以及**头部尾部**的空格。
 
 ## Author
-- [[pengcheng3211@163.com](https://github.com/pengcgithub)
+- [pengcheng3211@163.com](https://github.com/pengcgithub)
 
 
