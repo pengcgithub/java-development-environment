@@ -146,7 +146,7 @@ Starting MySQL..The server quit without updating PID file (/var/lib/mysql/HKBO.p
 
 ## 配置文件
 
-- [my.cnf配置文件](mysql/file/my.cnf)
+- [my.cnf配置文件](file/my.cnf)
 
 ## 参考资料
 
