@@ -1,4 +1,4 @@
-# docker
+# Docker安装
 
 ## 安装
 
@@ -11,18 +11,25 @@
 	- sudo yum makecache fast
 	- sudo yum install -y docker-ce
 
-- 启动 Docker：`systemctl start docker.service`
+- 启动docker：`systemctl start docker.service`
 
-- 停止 Docker：`systemctl stop docker.service`
+- 停止docker：`systemctl stop docker.service`
 
 - 查看状态：`systemctl status docker.service`
 
-## Docker基本命令
+## 设置镜像加速
 
-> 本地镜像管理
+目前可加速的镜像有 docker cn、阿里云加速器、中国科技大学三类。
 
-- `docker images`：显示本地所有的镜像地址
+- 创建配置文件：`touch /etc/docker/daemon.json`
+- 修改daemon.json：
+<pre>
+{
+"registry-mirrors"：["https://registry.docker-cn.com"]
+}
+</pre>
 
-> 容器操作
+## 版本说明
 
-- `docker ps`：列举出当前正在运行的容器
+docker image
+docker containers
