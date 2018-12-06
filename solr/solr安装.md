@@ -76,10 +76,11 @@ Error CREATEing SolrCore 'solr_core': Unable to create core [goods] Caused by: C
 
 ## 中文分词器
 
-[ikanalyzer 中文分词器](https://blog.csdn.net/qq_28114645/article/details/77961998)
-[内置中文分词器](https://blog.csdn.net/jiadajing267/article/details/78702158)
+- [ikanalyzer 中文分词器](https://blog.csdn.net/qq_28114645/article/details/77961998)
+- [Solr的中英文分词实现](https://www.cnblogs.com/knitmesh/p/5439713.html)
+- [内置中文分词器](https://blog.csdn.net/jiadajing267/article/details/78702158)
 
 ## 参考资料
-[https://www.linuxidc.com/Linux/2017-12/149898.htm](https://www.linuxidc.com/Linux/2017-12/149898.htm)
+- [https://www.linuxidc.com/Linux/2017-12/149898.htm](https://www.linuxidc.com/Linux/2017-12/149898.htm)
 
-[https://blog.csdn.net/l1028386804/article/details/70199983](https://blog.csdn.net/l1028386804/article/details/70199983)
+- [https://blog.csdn.net/l1028386804/article/details/70199983](https://blog.csdn.net/l1028386804/article/details/70199983)
