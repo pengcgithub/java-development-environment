@@ -35,3 +35,25 @@ docker image
 docker containers
 
 [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/centos/7/extras/x86_64/)
+
+docker run --name kvstore -d redis:4-alpine
+docker exce -it kvstore /bin/sh
+
+netstat -tnl
+
+## 镜像管理基础
+
+![](https://i.imgur.com/TGfcxFV.png)
+
+docker registry
+
+- 启动容器时，docker registry会试图从本地获取相关的镜像；本地不存在时，其将从registry中下载镜像并保存在本地；
+
+![](https://i.imgur.com/dREfKof.png)
+
+docker tag [image_id/repostitory] taget_image[:tag]
+
+docker image rm [repostitory]
+
+docker login -u pcwww
+
