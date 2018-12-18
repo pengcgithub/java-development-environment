@@ -34,6 +34,7 @@ Github 项目地址，欢迎 `Fork`、`Star`：<https://github.com/pengcgithub/j
 	- [solr安装](solr/solr安装.md)
 	- [schema](solr/schema.md)
 	- [mysql导入数据至索引库](solr/数据导入.md)
+	- [solr客户端使用说明](solr/solr客户端.md)
 	- [spring集成solr](solr/spring集成solr.md)
 - Container
 	- [Docker](docker/docker安装.md)
