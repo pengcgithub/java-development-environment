@@ -6,10 +6,10 @@
 
 - Docker安装
 
-	- sudo yum install -y yum-utils
-	- sudo yum-config-manager add-repo https://download.docker.com/linux/centos/docker-ce.repo
-	- sudo yum makecache fast
-	- sudo yum install -y docker-ce
+	- 安装一些必要的系统工具：`sudo yum install -y yum-utils device-mapper-persistent-data lvm2`
+	- 添加软件源信息：`sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo`
+	- 更新yum缓存：`sudo yum makecache fast`
+	- 安装 Docker-CE：`sudo yum install -y docker-ce`
 
 - 启动docker：`systemctl start docker.service`
 
@@ -29,54 +29,36 @@
 }
 </pre>
 
-## 版本说明
+## 卸载docker
 
-docker image
-docker containers
-
-[清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/centos/7/extras/x86_64/)
-
-docker run --name kvstore -d redis:4-alpine
-docker exce -it kvstore /bin/sh
-
-netstat -tnl
-
-## 镜像管理基础
-
-![](https://i.imgur.com/TGfcxFV.png)
-
-docker registry
-
-- 启动容器时，docker registry会试图从本地获取相关的镜像；本地不存在时，其将从registry中下载镜像并保存在本地；
-
-![](https://i.imgur.com/dREfKof.png)
-
-docker tag [image_id/repostitory] taget_image[:tag]
-
-docker image rm [repostitory]
-
-docker login -u pcwww
-
-## 如何卸载docker
-
+<pre>
 yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-selinux \
-                  docker-engine-selinux \
-                  docker-engine
+  docker-client \
+  docker-client-latest \
+  docker-common \
+  docker-latest \
+  docker-latest-logrotate \
+  docker-logrotate \
+  docker-selinux \
+  docker-engine-selinux \
+  docker-engine
 
 rm -rf /etc/systemd/system/docker.service.d
 
 rm -rf /var/lib/docker
 
 rm -rf /var/run/docker
+</pre>
 
+<pre>
+# 查找docker文件
 yum list installed | grep docker
 
 yum -y remove docker-engine.x86_64
+</pre>
 
+## 参考资料
+
+- [http://www.runoob.com/docker/centos-docker-install.html](http://www.runoob.com/docker/centos-docker-install.html)
+- [https://blog.csdn.net/qq_36421955/article/details/87802942](https://blog.csdn.net/qq_36421955/article/details/87802942)
+- [https://www.cnblogs.com/wonder4/p/9267509.html](https://www.cnblogs.com/wonder4/p/9267509.html)
