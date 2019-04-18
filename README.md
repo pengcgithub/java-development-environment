@@ -18,7 +18,7 @@ Github 项目地址，欢迎 `Fork`、`Star`：<https://github.com/pengcgithub/j
 	- [Zookeeper安装](zookeeper/zookeeper.md)
 	- [Zookeeper集群](zookeeper/zookeeper集群.md)
 - versionControl
-	- [Svn](svn.md)
+	- [svn](svn.md)
 - Mysql
 	- [mysql](mysql/mysql安装.md)
 	- [mysql备份方案](mysql/mysql备份.md)
@@ -37,12 +37,16 @@ Github 项目地址，欢迎 `Fork`、`Star`：<https://github.com/pengcgithub/j
 	- [solr客户端使用说明](solr/solr客户端.md)
 	- [spring集成solr](solr/spring集成solr.md)
 - Container
-	- [Docker](docker/docker安装.md)
+	- [docker安装](docker/docker安装.md)
+	- [docker.jenkins](docker/docker.jenkins.md)
+	- [docker.tomcat](docker/docker.tomcat.md)
 - Nginx
 	- [nginx](nginx/nginx.md)
 	- [nginx配置](nginx/nginx配置.md)
 - FastDFS
 	- [FastDFS](fastDFS/fastdfs.md)
+- Git
+	- [gitlab.ci](git/gitlab.ci.md)
 - Other
 	- [wecenter](wecenter.md)
 
