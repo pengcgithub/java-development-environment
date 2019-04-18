@@ -60,8 +60,6 @@ A项目，用于maven构建完成。通过a-parent项目管理下面的子项目
 
 ![](https://i.imgur.com/SQ67r0w.png)
 
-
-
 - Root POM：build的pom文件
 - Goals and options：maven脚本
 
@@ -76,3 +74,8 @@ A项目，用于maven构建完成。通过a-parent项目管理下面的子项目
 - WAR/EAR files：mvn之后的war地址
 - Context path：上下文名称
 - Containers：配置容器，添加tomcat的地址，以及tomcat中user.xml中配置的用户名、密码。
+
+## 参考
+
+- [https://blog.csdn.net/wenyingzhi/article/details/80883832](https://blog.csdn.net/wenyingzhi/article/details/80883832)
+- [https://blog.csdn.net/u012076316/article/details/52056107](https://blog.csdn.net/u012076316/article/details/52056107)
