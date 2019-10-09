@@ -43,6 +43,8 @@ Github 项目地址，欢迎 `Fork`、`Star`：<https://github.com/pengcgithub/j
 - Nginx
 	- [nginx](nginx/nginx.md)
 	- [nginx配置](nginx/nginx配置.md)
+- RocketMQ
+	- [rocketmq](rocketmq.md)
 - FastDFS
 	- [FastDFS](fastDFS/fastdfs.md)
 - Git
