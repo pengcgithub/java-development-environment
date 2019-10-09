@@ -49,3 +49,7 @@ docker tag [image_id/repostitory] taget_image[:tag]
 docker image rm [repostitory]
 
 docker login -u pcwww
+
+docker exec -it ac6eb263bbe5 /bin/sh
+
+docker run --name zookeeper01 -d zookeeper

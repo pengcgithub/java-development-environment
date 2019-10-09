@@ -57,6 +57,11 @@ yum list installed | grep docker
 yum -y remove docker-engine.x86_64
 </pre>
 
+## 问题
+
+- docker安装添加软件源，报错 `File "/bin/yum-config-manager", line 133 except yum.Errors.RepoError, e:`
+	- [https://blog.csdn.net/zhoudan232/article/details/79819394](https://blog.csdn.net/zhoudan232/article/details/79819394)
+
 ## 参考资料
 
 - [http://www.runoob.com/docker/centos-docker-install.html](http://www.runoob.com/docker/centos-docker-install.html)

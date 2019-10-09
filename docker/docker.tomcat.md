@@ -5,7 +5,7 @@ docker环境构建tomcat镜像，通过直接pull或则手动构建两种方式�
 ## pull官方images
 
 - 查找镜像：`docker search tomcat`
-- 拉取镜像：`docker pull tomcat:8.5-jre8`，如果不制定tag，那么会拉取最新的镜像。
+- 拉取镜像：`docker pull tomcat:8.5-jre8`，如果不指定tag，那么会拉取最新的镜像。
 - 查看镜像：`docker images`
 
 ## 手动制作tomcat镜像
